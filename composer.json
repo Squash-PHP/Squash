@@ -1,0 +1,8 @@
+{
+    "name": "givinghawk/squash-php",
+    "description": "Squash your PHP code down!",
+    "license": "AGPL-3.0-only",
+    "require": {
+        "php": ">=7.4"
+    }
+}
