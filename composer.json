@@ -4,13 +4,5 @@
     "license": "AGPL-3.0-only",
     "require": {
         "php": ">=7.4"
-    },
-    "autoload": {
-        "files": [
-            "src/Squash.php"
-        ],
-        "psr-4": {
-            "Squash\\": "src"
-        }
     }
 }
