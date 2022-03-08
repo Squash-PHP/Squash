@@ -4,5 +4,10 @@
     "license": "AGPL-3.0-only",
     "require": {
         "php": ">=7.4"
-    }
+    },
+    "autoload": {
+        "classmap": [
+          "src"
+        ]
+    },
 }
