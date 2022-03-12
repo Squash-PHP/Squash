@@ -9,14 +9,6 @@ include __DIR__.'/Squash-conversions-byte.php';
 include __DIR__.'/Squash-conversions-bibyte.php';
 include __DIR__.'/Squash-numbers.php';
 $Squash = new Squash;
-class SquashConversions {
-  public function __construct() {
-  $this->byte = new SquashConversionsByte;
-$this->bibyte = new SquashConversionsBiByte;
-  }
-}
-  $Squash->convert = new SquashConversions;
-$Squash->number = new SquashNumber;
 } else if ($response->upgrade == "mandatory") {
   die("You need to upgrade to $response->latest! You are currently on $version!\n");
 } else {
