@@ -1,45 +1,25 @@
 <?
-namespace Squash\Squash {
-class Squash {
-function sleepms(int $ms) {
-  $micro = $ms * 1000;
-  return usleep($micro);
-}
-function files_in_dir($dir, $newline) {
-  $fileList = glob($dir.'/*');
-  if ($newline == true) {
-    $seperator = "\n";
-  } else {
-    $seperator = "";
-  }
-  foreach($fileList as $filename){
-    $return .= $filename.$seperator;
-  }
-  return $return;
-}
-function file_in_dir($filename, $dir) {
-  $fileList = glob($dir.'/*');
-  if (in_array($dir.'/'.$filename, $fileList)) {
-    return true;
-  } else {
-    return false;
+$version = "0.0.3";
+$response = json_decode(file_get_contents("https://api.squash.ml/checkver.php?current=$version"));
+if ($response->upgrade == "not needed") {
+unset($response);
+unset($version);
+include __DIR__.'/Squash-main.php';
+include __DIR__.'/Squash-conversions-byte.php';
+include __DIR__.'/Squash-conversions-bibyte.php';
+include __DIR__.'/Squash-numbers.php';
+$Squash = new Squash;
+class SquashConversions {
+  public function __construct() {
+  $this->byte = new SquashConversionsByte;
+$this->bibyte = new SquashConversionsBiByte;
   }
 }
-}
-  $Squash = new Squash;
-  //Squash_start();
-//class A {
-  //public $hello;
-
-  //function __construct() {
-  //  $this->hello = new B();
-  //}
-//}
-
-//class B {
-  //public function hello() {
-  //  echo 'IT WORKS';
-  //}
-//}
+  $Squash->convert = new SquashConversions;
+$Squash->number = new SquashNumber;
+} else if ($response->upgrade == "mandatory") {
+  die("You need to upgrade to $response->latest! You are currently on $version!\n");
+} else {
+  die("Api is down or Squash is corrupted.\n");
 }
 ?>
