@@ -1,5 +1,10 @@
 <?
 class Squash {
+  public function __construct() {
+  $this->convert_byte = new SquashConversionsByte;
+$this->convert_bibyte = new SquashConversionsBiByte;
+$this->number = new SquashNumber;
+  }
   function update_file($dir, $filename, $source) {
     $fileList = glob($dir.'/*');
     if (in_array($dir.'/'.$filename, $fileList)) {
