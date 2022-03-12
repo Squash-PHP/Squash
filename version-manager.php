@@ -1,3 +1,3 @@
 <?
-$latestversion = "0.0.2";
+$latestversion = "0.0.3";
 ?>
