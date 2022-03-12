@@ -1,5 +1,5 @@
 <?
-$version = "0.0.3";
+$version = "0.0.4";
 $response = json_decode(file_get_contents("https://api.squash.ml/checkver.php?current=$version"));
 if ($response->upgrade == "not needed") {
 unset($response);
