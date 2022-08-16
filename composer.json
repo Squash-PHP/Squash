@@ -6,8 +6,11 @@
         "php": ">=7.4"
     },
     "autoload": {
+        "psr-4": {
+            "Squash\\": "lib/"
+        },
         "classmap": [
-          "src"
+            "legacy"
         ]
     }
 }
