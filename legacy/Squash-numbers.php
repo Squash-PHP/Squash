@@ -1,4 +1,4 @@
-<?
+<?php
 class SquashNumber {
   function format(int $num) {
     return number_format($num);
