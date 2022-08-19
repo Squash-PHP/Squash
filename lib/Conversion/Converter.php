@@ -4,6 +4,7 @@
 namespace Squash\Conversion;
 
 
+use OutOfRangeException;
 use Squash\Contract\ConverterInterface;
 
 
@@ -14,14 +15,18 @@ abstract class Converter implements ConverterInterface
 
     final public function from(Unit $from): ConverterInterface
     {
-        $this->from = $from;
-        return $this;
+        $converter = clone $this;
+        $converter->from = $from;
+
+        return $converter;
     }
 
     final public function to(string $to): ConverterInterface
     {
-        $this->to = $to;
-        return $this;
+        $converter = clone $this;
+        $converter->to = $to;
+
+        return $converter;
     }
 
     final public function convert(): Unit
@@ -30,6 +35,10 @@ abstract class Converter implements ConverterInterface
 
         $fromIndex = array_search($this->from->unit, $units);
         $toIndex = array_search($this->to, $units);
+
+        if ($fromIndex === false || $toIndex === false) {
+            throw new OutOfRangeException('Unknown conversion unit.');
+        }
 
         $result = $this->from->value;
 

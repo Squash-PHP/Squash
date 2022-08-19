@@ -11,7 +11,8 @@ use Squash\Legacy;
 final class Uuid4 implements UuidInterface
 {
     /**
-     * Shamelessly stolen from Legacy {@link Legacy::generateUuid()}
+     * Shamelessly stolen from {@link Legacy::generateUuid()}
+     * TODO: Use {@link \Squash\Contract\RandomGeneratorInterface} to generate values.
      *
      * @return string
      */

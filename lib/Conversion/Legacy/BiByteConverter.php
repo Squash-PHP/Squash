@@ -22,14 +22,18 @@ final class BiByteConverter implements ConverterInterface
 
     public function from(Unit $from): ConverterInterface
     {
-        $this->from = $from;
-        return $this;
+        $converter = clone $this;
+        $converter->from = $from;
+
+        return $converter;
     }
 
     public function to(string $to): ConverterInterface
     {
-        $this->to = $to;
-        return $this;
+        $converter = clone $this;
+        $converter->to = $to;
+
+        return $converter;
     }
 
     /**

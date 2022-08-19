@@ -19,12 +19,19 @@ final class FileSystem implements FileSystemInterface
 
         $files = array_map(
             fn (string $filename): string => $this->append($directory, $filename),
-            array_filter($files, fn (string $filename): bool => !$this->isDot($files))
+            array_filter($files, fn (string $filename): bool => !$this->isDot($filename))
         );
 
         return implode($addNewline ? PHP_EOL : '', $files);
     }
 
+    /**
+     * TODO: Replace strcmp with md5_file check.
+     *
+     * @param string $directory
+     * @param string $destination
+     * @param string $source
+     */
     public function replaceFile(string $directory, string $destination, string $source): void
     {
         $destinationPath = $this->append($directory, $destination);
@@ -34,10 +41,9 @@ final class FileSystem implements FileSystemInterface
             touch($destinationPath);
         }
 
-        $destinationContents = file_get_contents($destinationPath);
         $sourceContents = file_get_contents($sourcePath);
 
-        if (strcmp($destinationContents, $sourceContents) === 0) {
+        if (md5_file($destinationPath) === md5_file($sourcePath)) {
             return;
         }
 
@@ -51,6 +57,6 @@ final class FileSystem implements FileSystemInterface
 
     private function append(string $directory, string $part): string
     {
-        return rtrim($directory, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . ltrim($part, DIRECTORY_SEPARATOR);
+        return rtrim($directory, '/\\') . DIRECTORY_SEPARATOR . ltrim($part, '/\\');
     }
 }

@@ -28,7 +28,7 @@ final class Legacy implements NumberFormatterInterface, CalculatorInterface
     public function calculate(...$arguments)
     {
         if (count($arguments) != 3) {
-            throw new InvalidArgumentException('The amount of arguments must be exactly 3.');
+            throw new InvalidArgumentException('Argument count must be exactly three.');
         }
 
         list($left, $operator, $right) = $arguments;

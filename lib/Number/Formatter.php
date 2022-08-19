@@ -6,6 +6,9 @@ namespace Squash\Number;
 use Squash\Contract\NumberFormatterInterface;
 
 
+/**
+ * @codeCoverageIgnore No point in testing PHP function wraps.
+ */
 final class Formatter implements NumberFormatterInterface
 {
     public function format(float $number): string
