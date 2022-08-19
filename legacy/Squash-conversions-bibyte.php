@@ -1,4 +1,4 @@
-<?
+<?php
 class SquashConversionsBiByte {
   function kibibyte(int $value, $unit) {
     if ($unit == "kb") {

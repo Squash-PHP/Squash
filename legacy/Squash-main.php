@@ -1,4 +1,4 @@
-<?
+<?php
 class Squash {
   public function __construct() {
   $this->convert_byte = new SquashConversionsByte;

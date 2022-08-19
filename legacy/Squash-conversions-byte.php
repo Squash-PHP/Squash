@@ -1,4 +1,4 @@
-<?
+<?php
 class SquashConversionsByte {
   function bytes(int $value, $unit) {
     if ($unit == "b") {
