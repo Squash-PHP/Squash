@@ -1,4 +1,3 @@
 # PHP made super easy
-Original code: https://github.com/Squash-PHP/Squash
 
-###### It was fun to refactor.
+Squash is now over 1 year old!
