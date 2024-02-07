@@ -4,6 +4,8 @@
 namespace Squash;
 
 use Squash as LegacySquash;
+use Squash\Api\Ollama\EndpointController;
+use Squash\Contract\Api\OllamaEndpointInterface;
 use Squash\Contract\CalculatorInterface;
 use Squash\Contract\ConverterInterface;
 use Squash\Contract\FileSystemInterface;
@@ -11,10 +13,10 @@ use Squash\Contract\NumberFormatterInterface;
 use Squash\Contract\RandomGeneratorInterface;
 use Squash\Contract\TimerInterface;
 use Squash\Contract\UuidInterface;
+use Squash\Conversion\BiByteConverter;
+use Squash\Conversion\ByteConverter;
 use Squash\Conversion\Legacy\BiByteConverter as LegacyBiByteConverter;
 use Squash\Conversion\Legacy\ByteConverter as LegacyByteConverter;
-use Squash\Conversion\ByteConverter;
-use Squash\Conversion\BiByteConverter;
 use Squash\Conversion\Unit;
 use Squash\FileSystem\FileSystem;
 use Squash\Number\Calculator;
@@ -38,7 +40,8 @@ final class Squash
     private UuidInterface $uuid;
     private TimerInterface $timer;
     private NumberFormatterInterface $numberFormatter;
-    private CalculatorInterface $calculator;
+    private CalculatorInterface     $calculator;
+    private OllamaEndpointInterface $ollamaEndpoint;
 
     public static function create(): Squash
     {
@@ -50,7 +53,8 @@ final class Squash
             new Uuid4(),
             new Milliseconds(),
             new Formatter(),
-            new Calculator()
+            new Calculator(),
+            new EndpointController()
         );
     }
 
@@ -71,19 +75,21 @@ final class Squash
                 $legacy,
                 $legacy,
                 $numberLegacy,
-                $numberLegacy
+                $numberLegacy,
+                new EndpointController() // there's no legacy for that :)
         );
     }
 
     public function __construct(
-        ConverterInterface $byteConverter,
-        ConverterInterface $biByteConverter,
-        RandomGeneratorInterface $randomGenerator,
-        FileSystemInterface $fileSystem,
-        UuidInterface $uuid,
-        TimerInterface $timer,
-        NumberFormatterInterface $numberFormatter,
-        CalculatorInterface $calculator
+            ConverterInterface $byteConverter,
+            ConverterInterface $biByteConverter,
+            RandomGeneratorInterface $randomGenerator,
+            FileSystemInterface $fileSystem,
+            UuidInterface $uuid,
+            TimerInterface $timer,
+            NumberFormatterInterface $numberFormatter,
+            CalculatorInterface $calculator,
+            OllamaEndpointInterface $api
     ) {
         $this->byteConverter = $byteConverter;
         $this->biByteConverter = $biByteConverter;
@@ -93,6 +99,7 @@ final class Squash
         $this->timer = $timer;
         $this->numberFormatter = $numberFormatter;
         $this->calculator = $calculator;
+        $this->ollamaEndpoint = $api;
     }
 
     public function uuid(): string
@@ -151,5 +158,10 @@ final class Squash
     public function roundNumber(float $number, int $decimals = 0): string
     {
         return $this->numberFormatter->round($number, $decimals);
+    }
+
+    public function ollama(): OllamaEndpointInterface
+    {
+        return $this->ollamaEndpoint;
     }
 }

@@ -1,3 +1,6 @@
+- [ ] API integration
+    - [ ] Discord webhooks
+    - [ ] Ollama
 - [ ] Sorting Algorithms Implementation
     - [ ] Bubble Sort [High Priority]
         - [ ] Implement the bubble sort algorithm
