@@ -4,6 +4,7 @@
 namespace Squash;
 
 use Squash as LegacySquash;
+use Squash\APIs\Ollama\OllamaAPIController;
 use Squash\Contract\ApiInterface;
 use Squash\Contract\CalculatorInterface;
 use Squash\Contract\ConverterInterface;
@@ -53,7 +54,7 @@ final class Squash
             new Milliseconds(),
             new Formatter(),
             new Calculator(),
-            new ApiInterface()
+            new OllamaAPIController()
         );
     }
 

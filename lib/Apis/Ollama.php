@@ -4,7 +4,7 @@ namespace Squash\APIs\Ollama;
 
 use Squash\Contract\APIInterface;
 
-final class OllamaAPIController
+final class OllamaAPIController implements APIInterface
 {
     /**
      * Will use the Ollama API to generate a response.
