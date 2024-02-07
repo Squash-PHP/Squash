@@ -40,7 +40,7 @@ final class Squash
     private TimerInterface $timer;
     private NumberFormatterInterface $numberFormatter;
     private CalculatorInterface $calculator;
-    private ApiInterface $apiInterface;
+    private ApiInterface $api;
 
     public static function create(): Squash
     {
