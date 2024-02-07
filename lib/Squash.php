@@ -4,6 +4,7 @@
 namespace Squash;
 
 use Squash as LegacySquash;
+use Squash\Contract\ApiInterface;
 use Squash\Contract\CalculatorInterface;
 use Squash\Contract\ConverterInterface;
 use Squash\Contract\FileSystemInterface;
@@ -39,6 +40,7 @@ final class Squash
     private TimerInterface $timer;
     private NumberFormatterInterface $numberFormatter;
     private CalculatorInterface $calculator;
+    private ApiInterface $apiInterface;
 
     public static function create(): Squash
     {
@@ -50,7 +52,8 @@ final class Squash
             new Uuid4(),
             new Milliseconds(),
             new Formatter(),
-            new Calculator()
+            new Calculator(),
+            new ApiInterface()
         );
     }
 
@@ -83,7 +86,8 @@ final class Squash
         UuidInterface $uuid,
         TimerInterface $timer,
         NumberFormatterInterface $numberFormatter,
-        CalculatorInterface $calculator
+        CalculatorInterface $calculator,
+        ApiInterface $api
     ) {
         $this->byteConverter = $byteConverter;
         $this->biByteConverter = $biByteConverter;
@@ -93,6 +97,7 @@ final class Squash
         $this->timer = $timer;
         $this->numberFormatter = $numberFormatter;
         $this->calculator = $calculator;
+        $this->api = $api;
     }
 
     public function uuid(): string
