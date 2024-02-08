@@ -11,7 +11,7 @@ require __DIR__ . '/vendor/autoload.php';
 $squash = \Squash\Squash::create();
 
 $request = new Request(
-        'http://212.192.28.95:11434/',
+        'http://0.0.0.0:11434/',
         'this sentence is false',
         'llama2',
 );
