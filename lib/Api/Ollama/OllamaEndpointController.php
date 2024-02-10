@@ -35,9 +35,8 @@ final class OllamaEndpointController implements OllamaEndpointInterface {
         $response = curl_exec($handle);
         curl_close($handle);
         $responseBody = json_decode($response, true);
-        var_dump($responseBody);
         if ($responseBody === null) {
-            throw new \Exception('Failed to parse response from Ollama');
+            throw new \Exception('Failed to parse response from Ollama. CURL error: '.curl_error($handle));
         }
         return new Response(
                 $responseBody['created_at'],
