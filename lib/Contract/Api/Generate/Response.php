@@ -2,10 +2,9 @@
 
 namespace Squash\Contract\Api\Generate;
 
-use DateTimeImmutable;
 
 final class Response {
-    public DateTimeImmutable $createdAt;
+    public string $createdAt;
     public int $totalDuration;
     public int $loadDuration;
     public int $promptEvalCount;
@@ -16,7 +15,7 @@ final class Response {
     public string $response;
 
     public function __construct(
-            DateTimeImmutable $createdAt,
+            string $createdAt,
             int    $totalDuration,
             int    $loadDuration,
             int    $promptEvalCount,

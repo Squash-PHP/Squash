@@ -11,9 +11,16 @@ require __DIR__ . '/vendor/autoload.php';
 $squash = \Squash\Squash::create();
 
 $request = new Request(
-        'http://212.192.28.95:11434/',
+        'https://ollama.givinghawk.dev/',
         'this sentence is false',
-        'llama2',
+        'qwen:0.5b',
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        '30s'
 );
 $generationResult = $squash->ollama()->generate($request);
 

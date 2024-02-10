@@ -4,8 +4,10 @@
 namespace Squash;
 
 use Squash as LegacySquash;
-use Squash\Api\Ollama\EndpointController;
+use Squash\Api\Ollama\OllamaEndpointController;
+use Squash\Api\Discord\DiscordEndpointController;
 use Squash\Contract\Api\OllamaEndpointInterface;
+use Squash\Contract\Api\DiscordEndpointInterface;
 use Squash\Contract\CalculatorInterface;
 use Squash\Contract\ConverterInterface;
 use Squash\Contract\FileSystemInterface;
@@ -42,6 +44,7 @@ final class Squash
     private NumberFormatterInterface $numberFormatter;
     private CalculatorInterface     $calculator;
     private OllamaEndpointInterface $ollamaEndpoint;
+    private DiscordEndpointInterface $discordEndpoint;
 
     public static function create(): Squash
     {
@@ -54,7 +57,8 @@ final class Squash
             new Milliseconds(),
             new Formatter(),
             new Calculator(),
-            new EndpointController()
+            new OllamaEndpointController(),
+            new DiscordEndpointController()
         );
     }
 
@@ -76,7 +80,8 @@ final class Squash
                 $legacy,
                 $numberLegacy,
                 $numberLegacy,
-                new EndpointController() // there's no legacy for that :)
+                new OllamaEndpointController(),
+                new DiscordEndpointController()
         );
     }
 
@@ -89,7 +94,8 @@ final class Squash
             TimerInterface $timer,
             NumberFormatterInterface $numberFormatter,
             CalculatorInterface $calculator,
-            OllamaEndpointInterface $api
+            OllamaEndpointInterface $api,
+            DiscordEndpointInterface $discord
     ) {
         $this->byteConverter = $byteConverter;
         $this->biByteConverter = $biByteConverter;
@@ -100,6 +106,7 @@ final class Squash
         $this->numberFormatter = $numberFormatter;
         $this->calculator = $calculator;
         $this->ollamaEndpoint = $api;
+        $this->discordEndpoint = $discord;
     }
 
     public function uuid(): string

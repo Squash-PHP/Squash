@@ -7,7 +7,7 @@ use Squash\Contract\Api\Generate\Request;
 use Squash\Contract\Api\Generate\Response;
 use Squash\Contract\Api\OllamaEndpointInterface;
 
-final class EndpointController implements OllamaEndpointInterface {
+final class OllamaEndpointController implements OllamaEndpointInterface {
     /**
      * Will use the Ollama API to generate a response.
      *
@@ -34,14 +34,13 @@ final class EndpointController implements OllamaEndpointInterface {
         ]);
         $response = curl_exec($handle);
         curl_close($handle);
-
         $responseBody = json_decode($response, true);
-
-        $createdAt = explode('.', $responseBody['created_at']);
-        $createdAt = DateTimeImmutable::createFromFormat('Y-m-d\TH:i:s', $createdAt[0]);
-
+        var_dump($responseBody);
+        if ($responseBody === null) {
+            throw new \Exception('Failed to parse response from Ollama');
+        }
         return new Response(
-                $createdAt,
+                $responseBody['created_at'],
                 $responseBody['total_duration'] ?? 0,
                 $responseBody['load_duration'] ?? 0,
                 $responseBody['prompt_eval_count'] ?? 0,
