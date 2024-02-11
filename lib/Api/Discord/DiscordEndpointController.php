@@ -34,7 +34,6 @@ final class DiscordEndpointController implements DiscordEndpointInterface
 
         $response = curl_exec($ch);
 
-        // Check for errors
         if ($response === false) {
             throw new \Exception('Curl error: ' . curl_error($ch));
         }
