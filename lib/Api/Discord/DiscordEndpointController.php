@@ -17,15 +17,12 @@ final class DiscordEndpointController implements DiscordEndpointInterface
      *
      * @throws \Exception If there is an error executing the cURL request.
      */
-     
+
     public function sendWebhookMessage(string $message, string $webhookUrl, array $additionalData = null): void
     {
-        /* Thank you to https://gist.github.com/Mo45/cb0813cb8a6ebcd6524f6a36d4f8862c for the original code */
-
         $json_data = json_encode([
             "content" => $message,
         ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-
 
         $ch = curl_init($webhookUrl);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
@@ -36,6 +33,12 @@ final class DiscordEndpointController implements DiscordEndpointInterface
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
         $response = curl_exec($ch);
+
+        // Check for errors
+        if ($response === false) {
+            throw new \Exception('Curl error: ' . curl_error($ch));
+        }
+
         echo $response;
         curl_close($ch);
     }
