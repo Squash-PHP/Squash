@@ -49,29 +49,6 @@ echo "" . number_format(count($large_array)) . " elements" . PHP_EOL;
 echo "Huge Array: ";
 echo "" . number_format(count($huge_array)) . " elements" . PHP_EOL;
 
-// Bubble sort
-echo 'Starting bubble sort on small array' . PHP_EOL;
-$startBubbleSmall = microtime(true);
-$squash->sort->bubble($small_array);
-$endBubbleSmall = microtime(true);
-
-echo 'Starting bubble sort on medium array' . PHP_EOL;
-$startBubbleMedium = microtime(true);
-$squash->sort->bubble($medium_array);
-$endBubbleMedium = microtime(true);
-
-echo 'Starting bubble sort on large array' . PHP_EOL;
-$startBubbleLarge = microtime(true);
-$squash->sort->bubble($large_array);
-$endBubbleLarge = microtime(true);
-
-echo 'Starting bubble sort on huge array' . PHP_EOL;
-$startBubbleHuge = microtime(true);
-$squash->sort->bubble($huge_array);
-$endBubbleHuge = microtime(true);
-
-echo 'Bubble sort: ' . PHP_EOL . ' Small: '.sprintf("%.10f", ($endBubbleSmall-$startBubbleSmall)).'' . PHP_EOL . ' Medium: '.sprintf("%.10f", ($endBubbleMedium-$startBubbleMedium)).'' . PHP_EOL . ' Large: '.sprintf("%.10f", ($endBubbleLarge-$startBubbleLarge)).'' . PHP_EOL . ' Huge: '.sprintf("%.10f", ($endBubbleHuge-$startBubbleHuge));
-
 // Insertion sort
 echo 'Starting insertion sort on small array' . PHP_EOL;
 $startInsertionSmall = microtime(true);
@@ -209,6 +186,29 @@ $squash->sort->radix($huge_array);
 $endRadixHuge = microtime(true);
 
 echo 'Radix sort: ' . PHP_EOL . ' Small: '.sprintf("%.10f", ($endRadixSmall-$startRadixSmall)).'' . PHP_EOL . ' Medium: '.sprintf("%.10f", ($endRadixMedium-$startRadixMedium)).'' . PHP_EOL . ' Large: '.sprintf("%.10f", ($endRadixLarge-$startRadixLarge)).'' . PHP_EOL . ' Huge: '.sprintf("%.10f", ($endRadixHuge-$startRadixHuge));
+
+// Bubble sort
+echo 'Starting bubble sort on small array' . PHP_EOL;
+$startBubbleSmall = microtime(true);
+$squash->sort->bubble($small_array);
+$endBubbleSmall = microtime(true);
+
+echo 'Starting bubble sort on medium array' . PHP_EOL;
+$startBubbleMedium = microtime(true);
+$squash->sort->bubble($medium_array);
+$endBubbleMedium = microtime(true);
+
+echo 'Starting bubble sort on large array' . PHP_EOL;
+$startBubbleLarge = microtime(true);
+$squash->sort->bubble($large_array);
+$endBubbleLarge = microtime(true);
+
+echo 'Starting bubble sort on huge array' . PHP_EOL;
+$startBubbleHuge = microtime(true);
+$squash->sort->bubble($huge_array);
+$endBubbleHuge = microtime(true);
+
+echo 'Bubble sort: ' . PHP_EOL . ' Small: '.sprintf("%.10f", ($endBubbleSmall-$startBubbleSmall)).'' . PHP_EOL . ' Medium: '.sprintf("%.10f", ($endBubbleMedium-$startBubbleMedium)).'' . PHP_EOL . ' Large: '.sprintf("%.10f", ($endBubbleLarge-$startBubbleLarge)).'' . PHP_EOL . ' Huge: '.sprintf("%.10f", ($endBubbleHuge-$startBubbleHuge));
 
 // take all results and add them to a csv file with how large the array was
 $csv = fopen('sorting_benchmark.csv', 'a');
