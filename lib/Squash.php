@@ -4,13 +4,17 @@
 namespace Squash;
 
 use Squash as LegacySquash;
-use Squash\Api\Ollama\EndpointController;
+use Squash\Sorting\SortController;
+use Squash\Api\Ollama\OllamaEndpointController;
+use Squash\Api\Discord\DiscordEndpointController;
 use Squash\Contract\Api\OllamaEndpointInterface;
+use Squash\Contract\Api\DiscordEndpointInterface;
 use Squash\Contract\CalculatorInterface;
 use Squash\Contract\ConverterInterface;
 use Squash\Contract\FileSystemInterface;
 use Squash\Contract\NumberFormatterInterface;
 use Squash\Contract\RandomGeneratorInterface;
+use Squash\Contract\SortInterface;
 use Squash\Contract\TimerInterface;
 use Squash\Contract\UuidInterface;
 use Squash\Conversion\BiByteConverter;
@@ -42,6 +46,8 @@ final class Squash
     private NumberFormatterInterface $numberFormatter;
     private CalculatorInterface     $calculator;
     private OllamaEndpointInterface $ollamaEndpoint;
+    public DiscordEndpointInterface $discordEndpoint;
+    public SortInterface $sort;
 
     public static function create(): Squash
     {
@@ -54,7 +60,9 @@ final class Squash
             new Milliseconds(),
             new Formatter(),
             new Calculator(),
-            new EndpointController()
+            new OllamaEndpointController(),
+            new DiscordEndpointController(),
+            new SortController()
         );
     }
 
@@ -76,7 +84,9 @@ final class Squash
                 $legacy,
                 $numberLegacy,
                 $numberLegacy,
-                new EndpointController() // there's no legacy for that :)
+                new OllamaEndpointController(),
+                new DiscordEndpointController(),
+                new SortController()
         );
     }
 
@@ -89,7 +99,9 @@ final class Squash
             TimerInterface $timer,
             NumberFormatterInterface $numberFormatter,
             CalculatorInterface $calculator,
-            OllamaEndpointInterface $api
+            OllamaEndpointInterface $api,
+            DiscordEndpointInterface $discord,
+            SortInterface $sort
     ) {
         $this->byteConverter = $byteConverter;
         $this->biByteConverter = $biByteConverter;
@@ -100,6 +112,8 @@ final class Squash
         $this->numberFormatter = $numberFormatter;
         $this->calculator = $calculator;
         $this->ollamaEndpoint = $api;
+        $this->discordEndpoint = $discord;
+        $this->sort = $sort;
     }
 
     public function uuid(): string

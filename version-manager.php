@@ -13,7 +13,14 @@ $squash = \Squash\Squash::create();
 $request = new Request(
         'http://0.0.0.0:11434/',
         'this sentence is false',
-        'llama2',
+        'qwen:0.5b',
+        null,
+        null,
+        null,
+        null,
+        null,
+        false,
+        '30s'
 );
 $generationResult = $squash->ollama()->generate($request);
 

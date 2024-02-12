@@ -1,31 +1,29 @@
-- [ ] API integration
-    - [ ] Discord webhooks
-    - [ ] Ollama
+- [x] API integration
+    - [x] Discord webhooks
+    - [x] Ollama
 - [ ] Sorting Algorithms Implementation
     - [ ] Bubble Sort [High Priority]
-        - [ ] Implement the bubble sort algorithm
-        - [ ] Test the implementation with various input sizes and data types
+        - [x] Implement the bubble sort algorithm
+        - [ ] Benchmark
     - [ ] Insertion Sort [High Priority]
-        - [ ] Implement the insertion sort algorithm
-        - [ ] Test the implementation with various input sizes and data types
+        - [x] Implement the insertion sort algorithm
+        - [ ] Benchmark
     - [ ] Merge Sort [High Priority]
-        - [ ] Implement the merge sort algorithm
-        - [ ] Test the implementation with various input sizes and data types
+        - [x] Implement the merge sort algorithm
+        - [ ] Benchmark
     - [ ] Selection Sort
-        - [ ] Implement the selection sort algorithm
-        - [ ] Test the implementation with various input sizes and data types
+        - [x] Implement the selection sort algorithm
+        - [ ] Benchmark
     - [ ] Quick Sort
-        - [ ] Implement the quick sort algorithm
-        - [ ] Test the implementation with various input sizes and data types
+        - [x] Implement the quick sort algorithm
+        - [ ] Benchmark
     - [ ] Heap Sort
-        - [ ] Implement the heap sort algorithm
-        - [ ] Test the implementation with various input sizes and data types
+        - [x] Implement the heap sort algorithm
+        - [ ] Benchmark
     - [ ] Radix Sort
-        - [ ] Implement the radix sort algorithm
-        - [ ] Test the implementation with various input sizes and data types
-    - [ ] Compare Performance
-        - [ ] Measure the performance of each sorting algorithm
-        - [ ] Analyze and compare the time complexity and space complexity of the algorithms
+        - [x] Implement the radix sort algorithm
+        - [ ] Benchmark
+    - [ ] Generate graph of benchmark data
 - [ ] Localization and Internationalization
     - [ ] Translate content into different languages
     - [ ] Format dates, times, and numbers according to locale-specific conventions
