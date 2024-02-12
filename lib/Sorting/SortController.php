@@ -6,6 +6,13 @@ use Squash\Contract\SortInterface;
 
 final class SortController implements SortInterface
 {
+    /**
+     * Sorts an array using the bubble sort algorithm.
+     *
+     * @param array $arr The array to sort.
+     *
+     * @return array Returns the sorted array.
+     */
     public function bubble(array $arr)
     {
         $n = count($arr);
@@ -20,4 +27,6 @@ final class SortController implements SortInterface
         }
         return $arr;
     }
+
+    public function 
 }

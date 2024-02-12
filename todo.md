@@ -3,29 +3,27 @@
     - [x] Ollama
 - [ ] Sorting Algorithms Implementation
     - [ ] Bubble Sort [High Priority]
-        - [ ] Implement the bubble sort algorithm
-        - [ ] Test the implementation with various input sizes and data types
+        - [x] Implement the bubble sort algorithm
+        - [ ] Benchmark
     - [ ] Insertion Sort [High Priority]
         - [ ] Implement the insertion sort algorithm
-        - [ ] Test the implementation with various input sizes and data types
+        - [ ] Benchmark
     - [ ] Merge Sort [High Priority]
         - [ ] Implement the merge sort algorithm
-        - [ ] Test the implementation with various input sizes and data types
+        - [ ] Benchmark
     - [ ] Selection Sort
         - [ ] Implement the selection sort algorithm
-        - [ ] Test the implementation with various input sizes and data types
+        - [ ] Benchmark
     - [ ] Quick Sort
         - [ ] Implement the quick sort algorithm
-        - [ ] Test the implementation with various input sizes and data types
+        - [ ] Benchmark
     - [ ] Heap Sort
         - [ ] Implement the heap sort algorithm
-        - [ ] Test the implementation with various input sizes and data types
+        - [ ] Benchmark
     - [ ] Radix Sort
         - [ ] Implement the radix sort algorithm
-        - [ ] Test the implementation with various input sizes and data types
-    - [ ] Compare Performance
-        - [ ] Measure the performance of each sorting algorithm
-        - [ ] Analyze and compare the time complexity and space complexity of the algorithms
+        - [ ] Benchmark
+    - [ ] Generate graph of benchmark data
 - [ ] Localization and Internationalization
     - [ ] Translate content into different languages
     - [ ] Format dates, times, and numbers according to locale-specific conventions
