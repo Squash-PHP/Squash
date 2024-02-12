@@ -46,8 +46,8 @@ final class Squash
     private NumberFormatterInterface $numberFormatter;
     private CalculatorInterface     $calculator;
     private OllamaEndpointInterface $ollamaEndpoint;
-    private DiscordEndpointInterface $discordEndpoint;
-    private SortInterface $sort;
+    public DiscordEndpointInterface $discordEndpoint;
+    public SortInterface $sort;
 
     public static function create(): Squash
     {
