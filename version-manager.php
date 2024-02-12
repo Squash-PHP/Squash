@@ -11,7 +11,7 @@ require __DIR__ . '/vendor/autoload.php';
 $squash = \Squash\Squash::create();
 
 $request = new Request(
-        'http://ollama.givinghawk.dev',
+        'http://0.0.0.0:11434/',
         'this sentence is false',
         'qwen:0.5b',
         null,
