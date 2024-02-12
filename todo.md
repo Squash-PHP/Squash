@@ -6,22 +6,22 @@
         - [x] Implement the bubble sort algorithm
         - [ ] Benchmark
     - [ ] Insertion Sort [High Priority]
-        - [ ] Implement the insertion sort algorithm
+        - [x] Implement the insertion sort algorithm
         - [ ] Benchmark
     - [ ] Merge Sort [High Priority]
-        - [ ] Implement the merge sort algorithm
+        - [x] Implement the merge sort algorithm
         - [ ] Benchmark
     - [ ] Selection Sort
-        - [ ] Implement the selection sort algorithm
+        - [x] Implement the selection sort algorithm
         - [ ] Benchmark
     - [ ] Quick Sort
-        - [ ] Implement the quick sort algorithm
+        - [x] Implement the quick sort algorithm
         - [ ] Benchmark
     - [ ] Heap Sort
-        - [ ] Implement the heap sort algorithm
+        - [x] Implement the heap sort algorithm
         - [ ] Benchmark
     - [ ] Radix Sort
-        - [ ] Implement the radix sort algorithm
+        - [x] Implement the radix sort algorithm
         - [ ] Benchmark
     - [ ] Generate graph of benchmark data
 - [ ] Localization and Internationalization
