@@ -4,6 +4,7 @@
 namespace Squash;
 
 use Squash as LegacySquash;
+use Squash\Sorting\SortController;
 use Squash\Api\Ollama\OllamaEndpointController;
 use Squash\Api\Discord\DiscordEndpointController;
 use Squash\Contract\Api\OllamaEndpointInterface;
@@ -13,6 +14,7 @@ use Squash\Contract\ConverterInterface;
 use Squash\Contract\FileSystemInterface;
 use Squash\Contract\NumberFormatterInterface;
 use Squash\Contract\RandomGeneratorInterface;
+use Squash\Contract\SortInterface;
 use Squash\Contract\TimerInterface;
 use Squash\Contract\UuidInterface;
 use Squash\Conversion\BiByteConverter;
@@ -45,6 +47,7 @@ final class Squash
     private CalculatorInterface     $calculator;
     private OllamaEndpointInterface $ollamaEndpoint;
     private DiscordEndpointInterface $discordEndpoint;
+    private SortInterface $sort;
 
     public static function create(): Squash
     {
@@ -58,7 +61,8 @@ final class Squash
             new Formatter(),
             new Calculator(),
             new OllamaEndpointController(),
-            new DiscordEndpointController()
+            new DiscordEndpointController(),
+            new SortController()
         );
     }
 
@@ -81,7 +85,8 @@ final class Squash
                 $numberLegacy,
                 $numberLegacy,
                 new OllamaEndpointController(),
-                new DiscordEndpointController()
+                new DiscordEndpointController(),
+                new SortController()
         );
     }
 
@@ -95,7 +100,8 @@ final class Squash
             NumberFormatterInterface $numberFormatter,
             CalculatorInterface $calculator,
             OllamaEndpointInterface $api,
-            DiscordEndpointInterface $discord
+            DiscordEndpointInterface $discord,
+            SortInterface $sort
     ) {
         $this->byteConverter = $byteConverter;
         $this->biByteConverter = $biByteConverter;
@@ -107,6 +113,7 @@ final class Squash
         $this->calculator = $calculator;
         $this->ollamaEndpoint = $api;
         $this->discordEndpoint = $discord;
+        $this->sort = $sort;
     }
 
     public function uuid(): string
