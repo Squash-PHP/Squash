@@ -24,8 +24,8 @@
         - [x] Implement the radix sort algorithm
         - [ ] Benchmark
     - [ ] Generate graph of benchmark data
-- [ ] Localization and Internationalization
-    - [-] Translate content into different languages
+- [x] Localization and Internationalization
+    - [ ] ~~Translate content into different languages~~
     - [x] Format dates, times, and numbers according to locale-specific conventions
 - [ ] Session Management
     - [ ] Start, destroy, and access session data
