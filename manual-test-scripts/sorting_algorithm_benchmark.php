@@ -95,29 +95,6 @@ $endQuickHuge = microtime(true);
 
 echo 'Quick sort: ' . PHP_EOL . ' Small: '.sprintf("%.10f", ($endQuickSmall-$startQuickSmall)).'' . PHP_EOL . ' Medium: '.sprintf("%.10f", ($endQuickMedium-$startQuickMedium)).'' . PHP_EOL . ' Large: '.sprintf("%.10f", ($endQuickLarge-$startQuickLarge)).'' . PHP_EOL . ' Huge: '.sprintf("%.10f", ($endQuickHuge-$startQuickHuge));
 
-// Selection sort
-echo 'Starting selection sort on small array' . PHP_EOL;
-$startSelectionSmall = microtime(true);
-$squash->sort->selection($small_array);
-$endSelectionSmall = microtime(true);
-
-echo 'Starting selection sort on medium array' . PHP_EOL;
-$startSelectionMedium = microtime(true);
-$squash->sort->selection($medium_array);
-$endSelectionMedium = microtime(true);
-
-echo 'Starting selection sort on large array' . PHP_EOL;
-$startSelectionLarge = microtime(true);
-$squash->sort->selection($large_array);
-$endSelectionLarge = microtime(true);
-
-echo 'Starting selection sort on huge array' . PHP_EOL;
-$startSelectionHuge = microtime(true);
-$squash->sort->selection($huge_array);
-$endSelectionHuge = microtime(true);
-
-echo 'Selection sort: ' . PHP_EOL . ' Small: '.sprintf("%.10f", ($endSelectionSmall-$startSelectionSmall)).'' . PHP_EOL . ' Medium: '.sprintf("%.10f", ($endSelectionMedium-$startSelectionMedium)).'' . PHP_EOL . ' Large: '.sprintf("%.10f", ($endSelectionLarge-$startSelectionLarge)).'' . PHP_EOL . ' Huge: '.sprintf("%.10f", ($endSelectionHuge-$startSelectionHuge));
-
 // Heap sort
 echo 'Starting heap sort on small array' . PHP_EOL;
 $startHeapSmall = microtime(true);
@@ -164,6 +141,29 @@ $endRadixHuge = microtime(true);
 
 echo 'Radix sort: ' . PHP_EOL . ' Small: '.sprintf("%.10f", ($endRadixSmall-$startRadixSmall)).'' . PHP_EOL . ' Medium: '.sprintf("%.10f", ($endRadixMedium-$startRadixMedium)).'' . PHP_EOL . ' Large: '.sprintf("%.10f", ($endRadixLarge-$startRadixLarge)).'' . PHP_EOL . ' Huge: '.sprintf("%.10f", ($endRadixHuge-$startRadixHuge));
 /*
+// Selection sort
+echo 'Starting selection sort on small array' . PHP_EOL;
+$startSelectionSmall = microtime(true);
+$squash->sort->selection($small_array);
+$endSelectionSmall = microtime(true);
+
+echo 'Starting selection sort on medium array' . PHP_EOL;
+$startSelectionMedium = microtime(true);
+$squash->sort->selection($medium_array);
+$endSelectionMedium = microtime(true);
+
+echo 'Starting selection sort on large array' . PHP_EOL;
+$startSelectionLarge = microtime(true);
+$squash->sort->selection($large_array);
+$endSelectionLarge = microtime(true);
+
+echo 'Starting selection sort on huge array' . PHP_EOL;
+$startSelectionHuge = microtime(true);
+$squash->sort->selection($huge_array);
+$endSelectionHuge = microtime(true);
+
+echo 'Selection sort: ' . PHP_EOL . ' Small: '.sprintf("%.10f", ($endSelectionSmall-$startSelectionSmall)).'' . PHP_EOL . ' Medium: '.sprintf("%.10f", ($endSelectionMedium-$startSelectionMedium)).'' . PHP_EOL . ' Large: '.sprintf("%.10f", ($endSelectionLarge-$startSelectionLarge)).'' . PHP_EOL . ' Huge: '.sprintf("%.10f", ($endSelectionHuge-$startSelectionHuge));
+
 // Bubble sort
 echo 'Starting bubble sort on small array' . PHP_EOL;
 $startBubbleSmall = microtime(true);
@@ -218,7 +218,7 @@ fputcsv($csv, [
     //$endInsertionSmall-$startInsertionSmall,
     $endMergeSmall-$startMergeSmall,
     $endQuickSmall-$startQuickSmall,
-    $endSelectionSmall-$startSelectionSmall,
+    //$endSelectionSmall-$startSelectionSmall,
     $endHeapSmall-$startHeapSmall,
     $endRadixSmall-$startRadixSmall
 ]);
@@ -228,7 +228,7 @@ fputcsv($csv, [
     //$endInsertionMedium-$startInsertionMedium,
     $endMergeMedium-$startMergeMedium,
     $endQuickMedium-$startQuickMedium,
-    $endSelectionMedium-$startSelectionMedium,
+    //$endSelectionMedium-$startSelectionMedium,
     $endHeapMedium-$startHeapMedium,
     $endRadixMedium-$startRadixMedium
 ]);
@@ -238,7 +238,7 @@ fputcsv($csv, [
     //$endInsertionLarge-$startInsertionLarge,
     $endMergeLarge-$startMergeLarge,
     $endQuickLarge-$startQuickLarge,
-    $endSelectionLarge-$startSelectionLarge,
+    //$endSelectionLarge-$startSelectionLarge,
     $endHeapLarge-$startHeapLarge,
     $endRadixLarge-$startRadixLarge
 ]);
@@ -248,7 +248,7 @@ fputcsv($csv, [
     //$endInsertionHuge-$startInsertionHuge,
     $endMergeHuge-$startMergeHuge,
     $endQuickHuge-$startQuickHuge,
-    $endSelectionHuge-$startSelectionHuge,
+    //$endSelectionHuge-$startSelectionHuge,
     $endHeapHuge-$startHeapHuge,
     $endRadixHuge-$startRadixHuge
 ]);
