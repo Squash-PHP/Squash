@@ -25,8 +25,8 @@
         - [ ] Benchmark
     - [ ] Generate graph of benchmark data
 - [ ] Localization and Internationalization
-    - [ ] Translate content into different languages
-    - [ ] Format dates, times, and numbers according to locale-specific conventions
+    - [-] Translate content into different languages
+    - [x] Format dates, times, and numbers according to locale-specific conventions
 - [ ] Session Management
     - [ ] Start, destroy, and access session data
 - [ ] Encryption and Hashing
