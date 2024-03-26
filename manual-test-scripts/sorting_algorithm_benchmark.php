@@ -49,29 +49,6 @@ echo "" . number_format(count($large_array)) . " elements" . PHP_EOL;
 echo "Huge Array: ";
 echo "" . number_format(count($huge_array)) . " elements" . PHP_EOL;
 
-// Insertion sort
-echo 'Starting insertion sort on small array' . PHP_EOL;
-$startInsertionSmall = microtime(true);
-$squash->sort->insertion($small_array);
-$endInsertionSmall = microtime(true);
-
-echo 'Starting insertion sort on medium array' . PHP_EOL;
-$startInsertionMedium = microtime(true);
-$squash->sort->insertion($medium_array);
-$endInsertionMedium = microtime(true);
-
-echo 'Starting insertion sort on large array' . PHP_EOL;
-$startInsertionLarge = microtime(true);
-$squash->sort->insertion($large_array);
-$endInsertionLarge = microtime(true);
-
-echo 'Starting insertion sort on huge array' . PHP_EOL;
-$startInsertionHuge = microtime(true);
-$squash->sort->insertion($huge_array);
-$endInsertionHuge = microtime(true);
-
-echo 'Insertion sort: ' . PHP_EOL . ' Small: '.sprintf("%.10f", ($endInsertionSmall-$startInsertionSmall)).'' . PHP_EOL . ' Medium: '.sprintf("%.10f", ($endInsertionMedium-$startInsertionMedium)).'' . PHP_EOL . ' Large: '.sprintf("%.10f", ($endInsertionLarge-$startInsertionLarge)).'' . PHP_EOL . ' Huge: '.sprintf("%.10f", ($endInsertionHuge-$startInsertionHuge));
-
 // Merge sort
 echo 'Starting merge sort on small array' . PHP_EOL;
 $startMergeSmall = microtime(true);
@@ -118,29 +95,6 @@ $endQuickHuge = microtime(true);
 
 echo 'Quick sort: ' . PHP_EOL . ' Small: '.sprintf("%.10f", ($endQuickSmall-$startQuickSmall)).'' . PHP_EOL . ' Medium: '.sprintf("%.10f", ($endQuickMedium-$startQuickMedium)).'' . PHP_EOL . ' Large: '.sprintf("%.10f", ($endQuickLarge-$startQuickLarge)).'' . PHP_EOL . ' Huge: '.sprintf("%.10f", ($endQuickHuge-$startQuickHuge));
 
-// Selection sort
-echo 'Starting selection sort on small array' . PHP_EOL;
-$startSelectionSmall = microtime(true);
-$squash->sort->selection($small_array);
-$endSelectionSmall = microtime(true);
-
-echo 'Starting selection sort on medium array' . PHP_EOL;
-$startSelectionMedium = microtime(true);
-$squash->sort->selection($medium_array);
-$endSelectionMedium = microtime(true);
-
-echo 'Starting selection sort on large array' . PHP_EOL;
-$startSelectionLarge = microtime(true);
-$squash->sort->selection($large_array);
-$endSelectionLarge = microtime(true);
-
-echo 'Starting selection sort on huge array' . PHP_EOL;
-$startSelectionHuge = microtime(true);
-$squash->sort->selection($huge_array);
-$endSelectionHuge = microtime(true);
-
-echo 'Selection sort: ' . PHP_EOL . ' Small: '.sprintf("%.10f", ($endSelectionSmall-$startSelectionSmall)).'' . PHP_EOL . ' Medium: '.sprintf("%.10f", ($endSelectionMedium-$startSelectionMedium)).'' . PHP_EOL . ' Large: '.sprintf("%.10f", ($endSelectionLarge-$startSelectionLarge)).'' . PHP_EOL . ' Huge: '.sprintf("%.10f", ($endSelectionHuge-$startSelectionHuge));
-
 // Heap sort
 echo 'Starting heap sort on small array' . PHP_EOL;
 $startHeapSmall = microtime(true);
@@ -186,6 +140,29 @@ $squash->sort->radix($huge_array);
 $endRadixHuge = microtime(true);
 
 echo 'Radix sort: ' . PHP_EOL . ' Small: '.sprintf("%.10f", ($endRadixSmall-$startRadixSmall)).'' . PHP_EOL . ' Medium: '.sprintf("%.10f", ($endRadixMedium-$startRadixMedium)).'' . PHP_EOL . ' Large: '.sprintf("%.10f", ($endRadixLarge-$startRadixLarge)).'' . PHP_EOL . ' Huge: '.sprintf("%.10f", ($endRadixHuge-$startRadixHuge));
+/*
+// Selection sort
+echo 'Starting selection sort on small array' . PHP_EOL;
+$startSelectionSmall = microtime(true);
+$squash->sort->selection($small_array);
+$endSelectionSmall = microtime(true);
+
+echo 'Starting selection sort on medium array' . PHP_EOL;
+$startSelectionMedium = microtime(true);
+$squash->sort->selection($medium_array);
+$endSelectionMedium = microtime(true);
+
+echo 'Starting selection sort on large array' . PHP_EOL;
+$startSelectionLarge = microtime(true);
+$squash->sort->selection($large_array);
+$endSelectionLarge = microtime(true);
+
+echo 'Starting selection sort on huge array' . PHP_EOL;
+$startSelectionHuge = microtime(true);
+$squash->sort->selection($huge_array);
+$endSelectionHuge = microtime(true);
+
+echo 'Selection sort: ' . PHP_EOL . ' Small: '.sprintf("%.10f", ($endSelectionSmall-$startSelectionSmall)).'' . PHP_EOL . ' Medium: '.sprintf("%.10f", ($endSelectionMedium-$startSelectionMedium)).'' . PHP_EOL . ' Large: '.sprintf("%.10f", ($endSelectionLarge-$startSelectionLarge)).'' . PHP_EOL . ' Huge: '.sprintf("%.10f", ($endSelectionHuge-$startSelectionHuge));
 
 // Bubble sort
 echo 'Starting bubble sort on small array' . PHP_EOL;
@@ -210,45 +187,68 @@ $endBubbleHuge = microtime(true);
 
 echo 'Bubble sort: ' . PHP_EOL . ' Small: '.sprintf("%.10f", ($endBubbleSmall-$startBubbleSmall)).'' . PHP_EOL . ' Medium: '.sprintf("%.10f", ($endBubbleMedium-$startBubbleMedium)).'' . PHP_EOL . ' Large: '.sprintf("%.10f", ($endBubbleLarge-$startBubbleLarge)).'' . PHP_EOL . ' Huge: '.sprintf("%.10f", ($endBubbleHuge-$startBubbleHuge));
 
+// Insertion sort
+echo 'Starting insertion sort on small array' . PHP_EOL;
+$startInsertionSmall = microtime(true);
+$squash->sort->insertion($small_array);
+$endInsertionSmall = microtime(true);
+
+echo 'Starting insertion sort on medium array' . PHP_EOL;
+$startInsertionMedium = microtime(true);
+$squash->sort->insertion($medium_array);
+$endInsertionMedium = microtime(true);
+
+echo 'Starting insertion sort on large array' . PHP_EOL;
+$startInsertionLarge = microtime(true);
+$squash->sort->insertion($large_array);
+$endInsertionLarge = microtime(true);
+
+echo 'Starting insertion sort on huge array' . PHP_EOL;
+$startInsertionHuge = microtime(true);
+$squash->sort->insertion($huge_array);
+$endInsertionHuge = microtime(true);
+
+echo 'Insertion sort: ' . PHP_EOL . ' Small: '.sprintf("%.10f", ($endInsertionSmall-$startInsertionSmall)).'' . PHP_EOL . ' Medium: '.sprintf("%.10f", ($endInsertionMedium-$startInsertionMedium)).'' . PHP_EOL . ' Large: '.sprintf("%.10f", ($endInsertionLarge-$startInsertionLarge)).'' . PHP_EOL . ' Huge: '.sprintf("%.10f", ($endInsertionHuge-$startInsertionHuge));
+*/
 // take all results and add them to a csv file with how large the array was
 $csv = fopen('sorting_benchmark.csv', 'a');
 fputcsv($csv, [
     count($small_array),
-    $endBubbleSmall-$startBubbleSmall,
-    $endInsertionSmall-$startInsertionSmall,
+    //$endBubbleSmall-$startBubbleSmall,
+    //$endInsertionSmall-$startInsertionSmall,
     $endMergeSmall-$startMergeSmall,
     $endQuickSmall-$startQuickSmall,
-    $endSelectionSmall-$startSelectionSmall,
+    //$endSelectionSmall-$startSelectionSmall,
     $endHeapSmall-$startHeapSmall,
     $endRadixSmall-$startRadixSmall
 ]);
 fputcsv($csv, [
     count($medium_array),
-    $endBubbleMedium-$startBubbleMedium,
-    $endInsertionMedium-$startInsertionMedium,
+    //$endBubbleMedium-$startBubbleMedium,
+    //$endInsertionMedium-$startInsertionMedium,
     $endMergeMedium-$startMergeMedium,
     $endQuickMedium-$startQuickMedium,
-    $endSelectionMedium-$startSelectionMedium,
+    //$endSelectionMedium-$startSelectionMedium,
     $endHeapMedium-$startHeapMedium,
     $endRadixMedium-$startRadixMedium
 ]);
 fputcsv($csv, [
     count($large_array),
-    $endBubbleLarge-$startBubbleLarge,
-    $endInsertionLarge-$startInsertionLarge,
+    //$endBubbleLarge-$startBubbleLarge,
+    //$endInsertionLarge-$startInsertionLarge,
     $endMergeLarge-$startMergeLarge,
     $endQuickLarge-$startQuickLarge,
-    $endSelectionLarge-$startSelectionLarge,
+    //$endSelectionLarge-$startSelectionLarge,
     $endHeapLarge-$startHeapLarge,
     $endRadixLarge-$startRadixLarge
 ]);
 fputcsv($csv, [
     count($huge_array),
-    $endBubbleHuge-$startBubbleHuge,
-    $endInsertionHuge-$startInsertionHuge,
+    //$endBubbleHuge-$startBubbleHuge,
+    //$endInsertionHuge-$startInsertionHuge,
     $endMergeHuge-$startMergeHuge,
     $endQuickHuge-$startQuickHuge,
-    $endSelectionHuge-$startSelectionHuge,
+    //$endSelectionHuge-$startSelectionHuge,
     $endHeapHuge-$startHeapHuge,
     $endRadixHuge-$startRadixHuge
 ]);

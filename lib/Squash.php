@@ -6,6 +6,8 @@ namespace Squash;
 use Squash as LegacySquash;
 use Squash\Sorting\SortController;
 use Squash\Api\Ollama\OllamaEndpointController;
+use Squash\Number\LocaliseController;
+use Squash\Contract\LocaliseInterface;
 use Squash\Api\Discord\DiscordEndpointController;
 use Squash\Contract\Api\OllamaEndpointInterface;
 use Squash\Contract\Api\DiscordEndpointInterface;
@@ -48,6 +50,7 @@ final class Squash
     private OllamaEndpointInterface $ollamaEndpoint;
     public DiscordEndpointInterface $discordEndpoint;
     public SortInterface $sort;
+    public LocaliseInterface $localise;
 
     public static function create(): Squash
     {
@@ -62,7 +65,8 @@ final class Squash
             new Calculator(),
             new OllamaEndpointController(),
             new DiscordEndpointController(),
-            new SortController()
+            new SortController(),
+            new LocaliseController()
         );
     }
 
@@ -86,7 +90,8 @@ final class Squash
                 $numberLegacy,
                 new OllamaEndpointController(),
                 new DiscordEndpointController(),
-                new SortController()
+                new SortController(),
+                new LocaliseController()
         );
     }
 
@@ -101,7 +106,8 @@ final class Squash
             CalculatorInterface $calculator,
             OllamaEndpointInterface $api,
             DiscordEndpointInterface $discord,
-            SortInterface $sort
+            SortInterface $sort,
+            LocaliseInterface $localise
     ) {
         $this->byteConverter = $byteConverter;
         $this->biByteConverter = $biByteConverter;
@@ -114,6 +120,7 @@ final class Squash
         $this->ollamaEndpoint = $api;
         $this->discordEndpoint = $discord;
         $this->sort = $sort;
+        $this->localise = $localise;
     }
 
     public function uuid(): string
