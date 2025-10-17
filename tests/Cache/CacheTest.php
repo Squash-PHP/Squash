@@ -92,4 +92,11 @@ class CacheTest extends TestCase
         $this->cache->set('key', $value);
         $this->assertEquals($value, $this->cache->get('key'));
     }
+
+    public function testSetNullValue(): void
+    {
+        $this->cache->set('key', null);
+        $this->assertTrue($this->cache->has('key'));
+        $this->assertNull($this->cache->get('key'));
+    }
 }

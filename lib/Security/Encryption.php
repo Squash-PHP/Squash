@@ -13,7 +13,7 @@ final class Encryption implements EncryptionInterface
     public function encrypt(string $data, string $key): string
     {
         $ivLength = openssl_cipher_iv_length(self::CIPHER);
-        $iv = openssl_random_pseudo_bytes($ivLength);
+        $iv = random_bytes($ivLength);
         
         $encrypted = openssl_encrypt(
             $data,
@@ -41,6 +41,10 @@ final class Encryption implements EncryptionInterface
             $iv
         );
         
-        return $decrypted ?: '';
+        if ($decrypted === false) {
+            throw new \RuntimeException('Decryption failed');
+        }
+        
+        return $decrypted;
     }
 }

@@ -51,9 +51,11 @@ class EncryptionTest extends TestCase
         $wrongKey = 'wrong_key';
         
         $encrypted = $this->encryption->encrypt($data, $correctKey);
-        $decrypted = $this->encryption->decrypt($encrypted, $wrongKey);
         
-        $this->assertNotEquals($data, $decrypted);
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Decryption failed');
+        
+        $this->encryption->decrypt($encrypted, $wrongKey);
     }
 
     public function testEncryptEmptyString(): void

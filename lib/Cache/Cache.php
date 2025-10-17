@@ -39,7 +39,20 @@ final class Cache implements CacheInterface
             return $default;
         }
 
-        $data = unserialize(file_get_contents($filePath));
+        $contents = file_get_contents($filePath);
+        
+        // Validate that it's safe to unserialize
+        if ($contents === false || empty($contents)) {
+            return $default;
+        }
+        
+        $data = @unserialize($contents);
+        
+        // Validate unserialized data structure
+        if (!is_array($data) || !isset($data['value']) || !isset($data['expires'])) {
+            $this->delete($key);
+            return $default;
+        }
         
         if ($this->isExpired($data)) {
             $this->delete($key);
@@ -69,7 +82,29 @@ final class Cache implements CacheInterface
 
     public function has(string $key): bool
     {
-        return $this->get($key, null) !== null;
+        // Check memory cache first
+        if (isset($this->cache[$key])) {
+            $item = $this->cache[$key];
+            return !$this->isExpired($item);
+        }
+
+        // Check file cache
+        $filePath = $this->getFilePath($key);
+        if (!file_exists($filePath)) {
+            return false;
+        }
+
+        $contents = file_get_contents($filePath);
+        if ($contents === false || empty($contents)) {
+            return false;
+        }
+        
+        $data = @unserialize($contents);
+        if (!is_array($data) || !isset($data['value']) || !isset($data['expires'])) {
+            return false;
+        }
+        
+        return !$this->isExpired($data);
     }
 
     public function delete(string $key): bool
