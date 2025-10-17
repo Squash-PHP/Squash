@@ -31,6 +31,8 @@ echo "Session destroyed\n\n";
 echo "2. Encryption\n";
 echo "-------------\n";
 $encryption = new Encryption();
+// NOTE: In production, use a securely generated and stored key
+// Example: $secretKey = bin2hex(random_bytes(32));
 $secretKey = 'my-secret-key-123';
 $plaintext = 'This is a secret message!';
 $encrypted = $encryption->encrypt($plaintext, $secretKey);
@@ -86,8 +88,17 @@ echo "Has temp_data: " . ($cache->has('temp_data') ? 'true' : 'false') . "\n";
 echo "Clearing cache...\n";
 $cache->clear();
 echo "Has user_data after clear: " . ($cache->has('user_data') ? 'true' : 'false') . "\n";
+// Clean up cache directory
 if (is_dir($cacheDir)) {
-    rmdir($cacheDir);
+    // Remove any remaining files
+    $files = glob($cacheDir . '/*');
+    foreach ($files as $file) {
+        if (is_file($file)) {
+            unlink($file);
+        }
+    }
+    // Remove directory
+    @rmdir($cacheDir);
 }
 echo "\n";
 
